@@ -570,7 +570,19 @@ footer form .btn img {
   margin: 0 5px;
   height: 30px;
 }
-iframe html,
-iframe body {
-  background-color: transparent;
+
+.google-drive {
+  display: block;
+  margin: auto;
+  width: 500px;
+  height: 287px;
+  padding: 20px;
+  padding-bottom: 0;
+  background-color: #675e5c;
+  border-radius: 6px;
+}
+.upload-waste-container {
+  padding-top: 35px;
+  margin-top: 35px;
+  border-top: 2px dashed rgb(255 255 255 / 0.4);
 }

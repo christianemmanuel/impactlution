@@ -522,16 +522,6 @@
           quibusdam quisquam.
         </p>
         <div class="our-impact-content mt-5">
-          <!-- <div class="our-impact-video">
-            <iframe
-              class="video"
-              src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              frameborder="0"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-
           <div class="our-impact-video">
             <iframe
               class="video"
@@ -560,7 +550,17 @@
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          </div> -->
+          </div>
+
+          <div class="our-impact-video">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/tgbNymZ7vqY"
+              frameborder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
 
@@ -644,6 +644,7 @@
           method="post"
           autocomplete="off"
           name="google-sheet"
+          id="submission_form"
         >
           <div class="submission-info">
             <div class="form-group">
@@ -652,6 +653,7 @@
                 class="form-control"
                 placeholder="Name"
                 name="Name"
+                required
               />
             </div>
             <div class="form-group">
@@ -660,6 +662,7 @@
                 class="form-control"
                 placeholder="Email"
                 name="Email"
+                required
               />
             </div>
             <div class="form-group">
@@ -668,6 +671,7 @@
                 class="form-control"
                 placeholder="Contact Number"
                 name="Contact_Number"
+                required
               />
             </div>
             <div class="form-group">
@@ -676,6 +680,7 @@
                 class="form-control"
                 placeholder="Location"
                 name="Location"
+                required
               />
             </div>
             <div class="form-group">
@@ -684,16 +689,18 @@
                 class="form-control"
                 placeholder="Number of Participants"
                 name="Number_of_Participants"
+                required
               />
             </div>
             <div class="form-group">
-              <select class="form-control" name="Item_Collected">
-                <option selected disabled>Item Collected</option>
-                <option>Cigarette Butts</option>
-                <option>Bevarage Bottles</option>
-                <option>Grocery Bags</option>
-                <option>Bottle Caps</option>
-                <option>Containers</option>
+              <select class="form-control" name="Item_Collected" required>
+                <option value="" selected disabled>Item Collected</option>
+                <option value="Cigarette Butts">Cigarette Butts</option>
+                <option value="Bevarage Bottles">Bevarage Bottles</option>
+                <option value="Grocery Bags">Grocery Bags</option>
+                <option value="Bottle Cap">Bottle Caps</option>
+                <option value="Containers">Containers</option>
+                <option value="Others">Others</option>
               </select>
             </div>
           </div>
@@ -793,12 +800,13 @@
 
           <div class="text-center mt-4">
             <div class="form-group">
-              <input
+              <button
                 type="submit"
                 name="submit"
                 class="btn btn-primary btn-md"
-                value="Submit"
-              />
+              >
+                Submit
+              </button>
             </div>
           </div>
         </form>
@@ -864,6 +872,44 @@
       </div>
     </footer>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="formSubmit"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="formSubmit"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Form Submission</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Your form successfully submitted. Thanks!
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -896,9 +942,12 @@
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) =>
-            alert("Thanks for Contacting us..! We Will Contact You Soon...")
-          )
+          .then((response) => {
+            $("#formSubmit").modal("show");
+            $("#submission_form").each(function () {
+              this.reset();
+            });
+          })
           .catch((error) => console.error("Error!", error.message));
       });
     </script>

@@ -24,12 +24,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
     <link rel="stylesheet" href="./css/lightbox.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
@@ -522,7 +522,7 @@
           quibusdam quisquam.
         </p>
         <div class="our-impact-content mt-5">
-          <div class="our-impact-video">
+          <!-- <div class="our-impact-video">
             <iframe
               class="video"
               src="https://www.youtube.com/embed/tgbNymZ7vqY"
@@ -560,7 +560,7 @@
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -639,33 +639,55 @@
       <div class="container">
         <h2 class="font-weight-bold mb-4 text-center">Submission</h2>
 
-        <form class="submission-form">
+        <form
+          class="submission-form"
+          method="post"
+          autocomplete="off"
+          name="google-sheet"
+        >
           <div class="submission-info">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                name="Name"
+              />
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                name="Email"
+              />
             </div>
             <div class="form-group">
               <input
                 type="number"
                 class="form-control"
                 placeholder="Contact Number"
+                name="Contact_Number"
               />
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Location" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Location"
+                name="Location"
+              />
             </div>
             <div class="form-group">
               <input
                 type="number"
                 class="form-control"
                 placeholder="Number of Participants"
+                name="Number_of_Participants"
               />
             </div>
             <div class="form-group">
-              <select class="form-control">
+              <select class="form-control" name="Item_Collected">
                 <option selected disabled>Item Collected</option>
                 <option>Cigarette Butts</option>
                 <option>Bevarage Bottles</option>
@@ -682,6 +704,7 @@
                 type="number"
                 class="form-control"
                 placeholder="Cigarette Butts"
+                name="Cigarette_Butts"
               />
               <span class="qty">Qty</span>
             </div>
@@ -690,6 +713,7 @@
                 type="number"
                 class="form-control"
                 placeholder="Food Wrappers"
+                name="Food_Wrappers"
               />
               <span class="qty">Qty</span>
             </div>
@@ -698,6 +722,7 @@
                 type="number"
                 class="form-control"
                 placeholder="Containers"
+                name="Containers"
               />
               <span class="qty">Qty</span>
             </div>
@@ -706,11 +731,17 @@
                 type="number"
                 class="form-control"
                 placeholder="Bottles Caps"
+                name="Bottles_Caps"
               />
               <span class="qty">Qty</span>
             </div>
             <div class="form-group">
-              <input type="number" class="form-control" placeholder="Lids" />
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Lids"
+                name="Lids"
+              />
               <span class="qty">Qty</span>
             </div>
             <div class="form-group">
@@ -718,6 +749,7 @@
                 type="number"
                 class="form-control"
                 placeholder="Bevarage Bottles"
+                name="Bevarage_Bottles"
               />
               <span class="qty">Qty</span>
             </div>
@@ -726,6 +758,7 @@
                 type="number"
                 class="form-control"
                 placeholder="Disposable Face mask"
+                name="Disposable_Face_mask"
               />
               <span class="qty">Qty</span>
             </div>
@@ -734,11 +767,17 @@
                 type="number"
                 class="form-control"
                 placeholder="Cups & Plates"
+                name="Cups_And_Plates"
               />
               <span class="qty">Qty</span>
             </div>
             <div class="form-group">
-              <input type="number" class="form-control" placeholder="Bags" />
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Bags"
+                name="Bags"
+              />
               <span class="qty">Qty</span>
             </div>
             <div class="form-group">
@@ -746,17 +785,21 @@
                 type="number"
                 class="form-control"
                 placeholder="Other plastic bags"
+                name="Other_Plastic_bags"
               />
               <span class="qty">Qty</span>
             </div>
           </div>
 
           <div class="text-center mt-4">
-            <input
-              type="button"
-              value="Submit"
-              class="btn btn-primary btn-md"
-            />
+            <div class="form-group">
+              <input
+                type="submit"
+                name="submit"
+                class="btn btn-primary btn-md"
+                value="Submit"
+              />
+            </div>
           </div>
         </form>
       </div>
@@ -834,7 +877,7 @@
     ></script>
     <script
       type="text/javascript"
-      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     <script src="./js/lightbox.min.js"></script>
     <script src="./js/jquery.navpoints.min.js"></script>
@@ -844,6 +887,19 @@
       $(function () {
         $("#navigation").navpoints({ offset: 50 });
         $("#navigation-footer").navpoints({ offset: 50 });
+      });
+
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbyjf24gHtc-0hx_0iZmEsBEBPR1IfJCTGSukru3c7eiUZ4XNtQ/exec";
+      const form = document.forms["google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) =>
+            alert("Thanks for Contacting us..! We Will Contact You Soon...")
+          )
+          .catch((error) => console.error("Error!", error.message));
       });
     </script>
   </body>
